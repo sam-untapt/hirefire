@@ -51,11 +51,11 @@ def load_procs(*procs):
     """
     for obj in procs:
         proc = load_proc(obj)
-        if proc.name in loaded_procs:
-            raise ValueError('Given proc %r overlaps with '
-                             'another already loaded proc (%r)' %
-                             (proc, loaded_procs[proc.name]))
-        loaded_procs[proc.name] = proc
+        if not proc.name in loaded_procs:
+            #raise ValueError('Given proc %r overlaps with '
+            #                 'another already loaded proc (%r)' %
+            #                 (proc, loaded_procs[proc.name]))
+            loaded_procs[proc.name] = proc
     return loaded_procs
 
 
